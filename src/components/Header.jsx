@@ -3,17 +3,14 @@ import Nav from "./Nav";
 
 function Header() {
   return (
-    <header>
-      <div className="flex flex-col justify-center items-center mb-5 bg-listcolor">
-        <ul className="container inline-flex place-content-around bg-textcolor1">
-          <li className="text-pagebg">
-            <Nav />
-          </li>
-          <li className="text-pagebg">
-            <img src="src/imgs/logo.jpg" className="h-12 p-1" />
-          </li>
-        </ul>
+    <header className="flex bg-homepage p-5 w-84 h-50">
+      <div className="mt-2">
+        <Nav />
       </div>
+      <div className="bg-homepage w-2/3" />
+      <h1 className="text-textcolor1 mt-2 mb-2 bg-pagebg p-2 w-1/3">
+        VIRTUALLY CURATED
+      </h1>
     </header>
   );
 }

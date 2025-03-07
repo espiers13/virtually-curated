@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         buttoncolor: "#2d3754",
+        hovercolor: "#455582",
         textcolor1: "#ffffff",
         homepage: "#ffffff",
         pagebg: "#2d3754",

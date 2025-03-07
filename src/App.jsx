@@ -12,22 +12,20 @@ import ViewCollections from "./pages/ViewCollections";
 
 function App() {
   return (
-    <html lang="en">
-      <body className="font-sans bg-bgcolor text-black flex flex-col h-dvh">
-        <Header />
-        <main className="">
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/collections" element={<ViewCollections />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/mycollection/:user_id" element={<MyCollections />} />
-          </Routes>
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <div className="font-sans bg-bgcolor text-black flex flex-col min-h-screen">
+      <Header />
+      <main className="grow">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/collections" element={<ViewCollections />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/mycollection/:user_id" element={<MyCollections />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
