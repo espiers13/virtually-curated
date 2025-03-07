@@ -1,34 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import { searchCollections } from "../api/api";
+import ItemCard from "../components/ItemCard";
 
-function SearchPage() {
+function SearchResults() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [results, setResults] = useState([]);
+  const [pages, setPages] = useState(null);
+
+  const { search_query } = useParams();
+  const page = `/search/${search_query}/2`;
 
   const onTextChange = (e) => {
     setSearchQuery(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    searchCollections(searchQuery).then((data) => {
-      setIsLoading(false);
-      window.location.href = `/search/${searchQuery}`;
-    });
+
+    window.location.href = `/search/${searchQuery}`;
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    searchCollections(search_query).then((data) => {
+      setResults(data.records);
+      setPages(data.info.pages);
+      setIsLoading(false);
+    });
+  }, []);
 
   return (
     <main className="bg-pagebg h-screen">
-      <img
-        src="src/imgs/explore_through_art.jpg"
-        alt="Explore the world through art"
-        className="mb-5 mt-3"
-      />
-
-      <form className="max-w-md mx-auto m-auto" onSubmit={handleSubmit}>
-        <label htmlFor="default-search" className="text-white text-2xl">
-          EXPLORE THE COLLECTIONS...
-        </label>
+      <form className="max-w-md mx-auto m-auto mt-5" onSubmit={handleSubmit}>
         <div className="relative mt-3 mb-3">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
@@ -63,8 +67,23 @@ function SearchPage() {
           </button>
         </div>
       </form>
+      <div>
+        <h1 className="text-white text-2xl mt-5">
+          RESULTS FOR: "{search_query}"
+        </h1>
+        <div className="grid grid-cols-3">
+          {results.map((item) => {
+            return <ItemCard key={item.systemNumber} item={item} />;
+          })}
+        </div>
+        <ul></ul>
+      </div>
+      <p>Go to page:</p>
+      <a href={page}>2</a>
     </main>
   );
 }
 
-export default SearchPage;
+//set pages: find the total amount of pages, have buttons at the bottom to go to that page. Link venue ID to venue name (value)
+
+export default SearchResults;

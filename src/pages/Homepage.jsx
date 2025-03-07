@@ -20,7 +20,7 @@ function Homepage() {
             <img
               src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
               alt="Van Gogh - Starry Night"
-              class={imgStyling}
+              className={imgStyling}
             />
             <div className="w-full absolute bottom-0 left-0 text-center mt-10">
               <h2 className={textStyling}>SEARCH COLLECTIONS</h2>
@@ -32,7 +32,7 @@ function Homepage() {
             <img
               src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/38000/38175-Manchester-Art-Gallery.jpg"
               alt="Manchester Art Gallery"
-              class={imgStyling}
+              className={imgStyling}
             />
             <div className="w-full absolute bottom-0 left-0 text-center mt-10">
               <h2 className={textStyling}>VIEW COLLECTIONS</h2>
@@ -44,7 +44,7 @@ function Homepage() {
             <img
               src="https://www.ucl.ac.uk/museums-collections/sites/museums_collections/files/grant-museum-butterflies-shelves.jpg"
               alt="UCL Butterflies"
-              class={imgStyling}
+              className={imgStyling}
             />
             <div className="w-full absolute bottom-0 left-0 text-center mt-10">
               <h2 className={textStyling}>MY COLLECTIONS</h2>
