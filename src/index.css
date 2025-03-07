@@ -7,13 +7,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  --background: #ffffff;
+  --background: #2d3754;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #2d3754;
     --foreground: #ededed;
   }
 }

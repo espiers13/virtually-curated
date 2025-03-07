@@ -9,6 +9,8 @@ module.exports = {
       colors: {
         buttoncolor: "#2d3754",
         textcolor1: "#ffffff",
+        homepage: "#ffffff",
+        pagebg: "#2d3754",
       },
       container: {
         padding: {

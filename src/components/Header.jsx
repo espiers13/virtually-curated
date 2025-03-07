@@ -1,12 +1,18 @@
 import * as React from "react";
-import Menu from "./Menu";
+import Nav from "./Nav";
 
 function Header() {
   return (
-    <header className="bg-slate-600 p-2">
-      <div className="container flex gap-4 items-center">
-        <Menu />
-        <h3 className="text-white text-2xl">VIRTUALLY CURATED</h3>
+    <header>
+      <div className="flex flex-col justify-center items-center mb-5 bg-listcolor">
+        <ul className="container inline-flex place-content-around bg-textcolor1">
+          <li className="text-pagebg">
+            <Nav />
+          </li>
+          <li className="text-pagebg">
+            <img src="src/imgs/logo.jpg" className="h-12 p-1" />
+          </li>
+        </ul>
       </div>
     </header>
   );
