@@ -4,6 +4,7 @@ import { searchCollections } from "../api/api";
 import ItemCard from "../components/ItemCard";
 import SearchBar from "../components/SearchBar";
 import ResultsPagination from "../components/ResultsPagination";
+import SearchBarWithDropdown from "../components/SearchBarWithDropdown";
 
 function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,12 +12,11 @@ function SearchResults() {
   const [postsPerPage, setPostsPerPage] = useState(15);
   const [pages, setPages] = useState(null);
 
-  const { search_query } = useParams();
-  const { page_number } = useParams();
+  const { search_query, page_number, category } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    searchCollections(search_query, page_number).then((data) => {
+    searchCollections(search_query, page_number, category).then((data) => {
       setResults(data.records);
       setPages(data.info.pages);
       setIsLoading(false);
@@ -25,7 +25,7 @@ function SearchResults() {
 
   return (
     <main className="bg-pagebg h-screen">
-      <SearchBar />
+      <SearchBarWithDropdown />
       <div>
         <h1 className="text-white text-2xl mt-5">
           RESULTS FOR: "{search_query}"
@@ -43,6 +43,7 @@ function SearchResults() {
         pages={pages}
         search_query={search_query}
         page_number={page_number}
+        category={category}
       />
     </main>
   );

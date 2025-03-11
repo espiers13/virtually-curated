@@ -1,6 +1,12 @@
 import React from "react";
 
-function ResultsPagination({ postsPerPage, pages, search_query, page_number }) {
+function ResultsPagination({
+  postsPerPage,
+  pages,
+  search_query,
+  page_number,
+  category,
+}) {
   const paginationNumbers = [];
 
   const pg_number = Number(page_number);
@@ -16,19 +22,24 @@ function ResultsPagination({ postsPerPage, pages, search_query, page_number }) {
   }
 
   const handlePagination = (e) => {
-    window.location.href = `/search/${search_query}/${e.target.innerHTML}`;
+    window.location.href = `/search/${category}/${search_query}/${e.target.innerHTML}`;
   };
 
   const handlePrevious = (e) => {
     if (pg_number > 0) {
-      window.location.href = `/search/${search_query}/${pg_number - 1}`;
-    } else window.location.href = `/search/${search_query}/1`;
+      window.location.href = `/search/${category}/${search_query}/${
+        pg_number - 1
+      }`;
+    } else window.location.href = `/search/${category}/${search_query}/1`;
   };
 
   const handleNext = (e) => {
     if (pg_number < pages) {
-      window.location.href = `/search/${search_query}/${pg_number + 1}`;
-    } else window.location.href = `/search/${search_query}/${pages}`;
+      window.location.href = `/search/${category}/${search_query}/${
+        pg_number + 1
+      }`;
+    } else
+      window.location.href = `/search/${category}/${search_query}/${pages}`;
   };
 
   return (
@@ -40,7 +51,7 @@ function ResultsPagination({ postsPerPage, pages, search_query, page_number }) {
       >
         Previous
       </button>
-      {paginationNumbers.map((pageNumber) => (
+      {/* {paginationNumbers.map((pageNumber) => (
         <button
           key={pageNumber}
           className={pg_number === pageNumber ? currentPgStyling : navStyling}
@@ -48,7 +59,7 @@ function ResultsPagination({ postsPerPage, pages, search_query, page_number }) {
         >
           {pageNumber}
         </button>
-      ))}
+      ))} */}
       <button
         href="#"
         className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700"

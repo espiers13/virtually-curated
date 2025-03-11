@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route
-            path="/search/:search_query/:page_number"
+            path="/search/:category/:search_query/:page_number"
             element={<SearchResults />}
           />
           <Route path="/collections" element={<ViewCollections />} />
