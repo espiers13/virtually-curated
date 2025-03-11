@@ -4,19 +4,13 @@ const vaApi = axios.create({
   baseURL: "https://api.vam.ac.uk/v2",
 });
 
-export const searchCollections = (search_query) => {
+export const searchCollections = (search_query, pg_number) => {
   return vaApi
-    .get(`/objects/search?q=${search_query}&page_size=100`)
+    .get(`/objects/search?q=${search_query}&page_size=50&page=${pg_number}`)
     .then(({ data }) => {
       return data;
-    });
-};
-
-export const searchCollectionsByPage = (search_query, pg_number) => {
-  return vaApi
-    .get(`/objects/search?q=${search_query}&page=${pg_number}`)
-    .then(({ data }) => {
-      console.log(data);
-      return data.records;
+    })
+    .catch((err) => {
+      return err;
     });
 };

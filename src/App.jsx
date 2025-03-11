@@ -20,7 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/search/:search_query" element={<SearchResults />} />
+          <Route
+            path="/search/:search_query/:page_number"
+            element={<SearchResults />}
+          />
           <Route path="/collections" element={<ViewCollections />} />
           <Route path="/item/:item_id" element={<ItemPage />} />
           <Route path="/login" element={<Login />} />
